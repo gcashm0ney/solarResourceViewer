@@ -1,6 +1,12 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+from databricks import sql  # to interact with Databricks SQL
+
+# If you are using `requests`, `pyarrow`, or `cryptography` directly, you would import them as well, but they aren't necessary for your current code.
+import requests
+import pyarrow
+import cryptography
 
 
 # --- Secrets / Config (for local use) ---
@@ -42,11 +48,11 @@ col2.metric("Avg POA (W/m²)", f"{filtered_df['poa'].mean():.1f}")
 col3.metric("Avg Cell Temp (°C)", f"{filtered_df['tcell'].mean():.1f}")
 
 # --- Time series chart ---
-st.subheader("📈 Hourly AC Output Over Time")
+st.subheader("📈 Plane of Array Irradiance Over Time")
 fig, ax = plt.subplots(figsize=(10, 4))
-ax.plot(filtered_df["date"], filtered_df["ac"], label="AC Output (kWh)", color="orange")
+ax.plot(filtered_df["date"], filtered_df["poa"], label="Plane of Array Irradiance (W/m2)", color="orange")
 ax.set_xlabel("Date")
-ax.set_ylabel("AC Output (kWh)")
+ax.set_ylabel("Plane of Array Irradiance (W/m2)")
 ax.grid(True)
 st.pyplot(fig)
 
