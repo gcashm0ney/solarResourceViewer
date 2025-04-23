@@ -1,7 +1,5 @@
 import streamlit as st
 import pandas as pd
-from databricks import sql
-import matplotlib.pyplot as plt
 
 # --- Secrets / Config (for local use) ---
 DATABRICKS_SERVER_HOSTNAME = st.secrets["DATABRICKS_SERVER_HOSTNAME"]
