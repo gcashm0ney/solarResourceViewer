@@ -1,10 +1,12 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
+
 
 # --- Secrets / Config (for local use) ---
-DATABRICKS_SERVER_HOSTNAME = st.secrets["DATABRICKS_SERVER_HOSTNAME"]
-DATABRICKS_HTTP_PATH = st.secrets["DATABRICKS_HTTP_PATH"]
-DATABRICKS_ACCESS_TOKEN = st.secrets["DATABRICKS_ACCESS_TOKEN"]
+DATABRICKS_SERVER_HOSTNAME = st.secrets["databricks"]["server_hostname"]
+DATABRICKS_HTTP_PATH = st.secrets["databricks"]["http_path"]
+DATABRICKS_ACCESS_TOKEN = st.secrets["databricks"]["access_token"]
 
 
 # --- Databricks SQL query function ---
